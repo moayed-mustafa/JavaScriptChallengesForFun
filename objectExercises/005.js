@@ -29,38 +29,41 @@ Starter Code :
 */
 
 function transformEmployeeData(array) {
-  // your code here
-  let solutionArray =[{}, {}]
-
-  let key;
-  let value;
-  
-//   loop through the array 
-// console.log(array[0][0]);
-array[0].forEach(arrayItem =>{
-    key =arrayItem[0];
-    value =arrayItem[1];
-    solutionArray[0][key]= value   
-})
-array[1].forEach(arrayItem =>{
-    key =arrayItem[0];
-    value =arrayItem[1];
-    solutionArray[1][key]= value   
-})
-console.log(solutionArray);
-}
-transformEmployeeData([
-        [
-             ['firstName', 'Joe'],
-             ['lastName', 'Blow'], 
-             ['age', 42], 
-             ['role', 'clerk']
-        ],
+    // your code here
+    let solutionArray =[]
+    let obj = {};
+     for(let x=0; x< array.length; x++){
+         solutionArray.push(obj);
+     }
+  //    console.log(solutionArray)
+    let key;
+    let value;
     
-        [
-             ['firstName', 'Mary'],
-             ['lastName', 'Jenkins'],
-             ['age', 36],
-             ['role', 'manager']
-        ]
-    ])
+  //   loop through the array 
+  array.forEach(innerArray =>{
+     innerArray.forEach(innerInnerArr=>{
+        key = innerInnerArr[0];
+        value= innerInnerArr[1];
+        solutionArray.forEach(obj=>{
+            obj[key]= value;
+        })
+     })
+      
+     
+  })
+  console.log(solutionArray);
+  return solutionArray;
+  
+  }
+  transformEmployeeData([
+          [
+               ['firstName', 'Joe'],['lastName', 'Blow'], ['age', 42], ['role', 'clerk'],['tshirtsize', 'xl']  
+          ],
+      
+          [
+               ['firstName', 'Mary'],['lastName', 'Jenkins'],['age', 36],['role', 'manager'], ['tshirtsize', 'xxl']
+          ],
+          [
+              ['firstName', 'Craig'], ['lastName', 'Jeans'], ['age', 52], ['role', 'TechLead']
+          ]
+      ])
